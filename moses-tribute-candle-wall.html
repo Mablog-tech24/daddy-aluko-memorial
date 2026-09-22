@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Moses Tribute</title>
+<style>
+  :root{
+    --ink:#161616; --muted:#4d4d4d; --accent:#6f861d; --accent2:#8ca32d;
+    --card:#ffffff; --soft:#f7f8f5; --shadow:0 8px 24px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter, ui-sans-serif, system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:white}
+  .wrap{max-width:1220px;margin:0 auto;padding:40px 28px 60px}
+  h1{font-size:26px;font-weight:500;text-align:center;margin:0 0 46px}
+  .top-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:72px}
+  .card{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:28px;cursor:pointer;transition:.2s transform,.2s box-shadow;text-decoration:none;color:inherit;border:1px solid #f4f4f4}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.11)}
+  .top-card{min-height:215px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .icon-bubble{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--soft);margin-bottom:18px}
+  .icon{font-size:27px;line-height:1;color:var(--accent)}
+  .title{font-size:18px;font-weight:650;margin-bottom:12px}
+  .desc{font-size:16px;line-height:1.45;color:#222}
+  .lower-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .wide{min-height:128px;display:flex;align-items:flex-start;gap:18px;padding:28px 26px}
+  .wide .icon-bubble{width:48px;height:48px;flex:0 0 48px;margin:0}
+  .wide .title{margin:1px 0 6px}
+  .wide .desc{font-size:15px;color:#222}
+  .span-2{grid-column:span 1}
+  .note{margin-top:36px;text-align:center;color:var(--muted);font-size:13px}
+  @media (max-width:900px){
+    .top-grid,.lower-grid{grid-template-columns:1fr 1fr}.top-grid{margin-bottom:28px}
+  }
+  @media (max-width:620px){
+    .wrap{padding:28px 16px 40px}h1{font-size:22px;margin-bottom:28px}
+    .top-grid,.lower-grid{grid-template-columns:1fr;gap:16px}
+    .top-card{min-height:170px}.card{border-radius:20px}
+  }
+
+/* Memorial candle wall */
+.candle-wall {
+  max-width: 980px;
+  margin: 38px auto 10px;
+  padding: 28px 22px;
+  text-align: center;
+}
+.candle-wall h2 { margin: 0 0 8px; font-size: clamp(1.5rem, 3vw, 2.15rem); }
+.candle-wall .intro { margin: 0 auto 24px; max-width: 650px; opacity: .75; line-height: 1.55; }
+.candles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  gap: 18px;
+}
+.memorial-candle {
+  padding: 28px 16px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.7);
+  box-shadow: 0 8px 24px rgba(0,0,0,.07);
+}
+.flame-wrap { position: relative; height: 72px; display: flex; align-items: flex-end; justify-content: center; }
+.flame {
+  width: 24px; height: 44px;
+  border-radius: 55% 45% 55% 45%;
+  background: radial-gradient(circle at 50% 70%, #fff6b7 0 18%, #ffd45c 19% 46%, #f29a38 47% 72%, #cf5b28 73%);
+  transform-origin: 50% 100%;
+  animation: flicker .9s ease-in-out infinite alternate;
+  box-shadow: 0 0 18px rgba(244,171,60,.65), 0 0 36px rgba(244,171,60,.25);
+}
+.flame:after {
+  content:""; position:absolute; width:11px; height:22px; left:50%; bottom:5px; transform:translateX(-50%);
+  border-radius:55% 45% 55% 45%; background:rgba(255,255,235,.75);
+}
+@keyframes flicker {
+  0% { transform: rotate(-3deg) scale(.96,1.03); }
+  35% { transform: rotate(2deg) scale(1.04,.97); }
+  70% { transform: rotate(-1deg) scale(.98,1.06); }
+  100% { transform: rotate(3deg) scale(1.03,.95); }
+}
+.candle-body {
+  width: 66px; height: 86px; margin: 0 auto 16px;
+  border-radius: 10px 10px 16px 16px;
+  background: linear-gradient(90deg,#efe8d5,#fffdf3 48%,#e9dfc8);
+  box-shadow: inset 0 -8px 14px rgba(0,0,0,.06), 0 7px 12px rgba(0,0,0,.08);
+  position:relative;
+}
+.candle-body:before { content:""; position:absolute; width:3px; height:12px; background:#3f352e; left:50%; top:-9px; transform:translateX(-50%); border-radius:2px; }
+.memorial-candle strong { display:block; margin-top:4px; }
+.memorial-candle p { margin:7px 0 0; font-size:.93rem; line-height:1.45; opacity:.72; }
+.light-another {
+  display:inline-block; margin-top:24px; padding:12px 20px; border-radius:999px;
+  text-decoration:none; font-weight:650; background:#51604c; color:white;
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Help grow Moses' tribute by adding messages or memories you'd like to share.</h1>
+
+  <div class="top-grid">
+    <a class="card top-card" href="#" data-choice="Share a thought">
+      <div class="icon-bubble"><div class="icon">💬</div></div>
+      <div class="title">Share a thought</div>
+      <div class="desc">Add your own message</div>
+    </a>
+    <a class="card top-card" href="#" data-choice="Light a candle">
+      <div class="icon-bubble"><div class="icon">🕯️</div></div>
+      <div class="title">Light a candle</div>
+      <div class="desc">Choose a candle for Moses<br/>and leave a message</div>
+    </a>
+    <a class="card top-card" href="#" data-choice="Add a picture">
+      <div class="icon-bubble"><div class="icon">🖼️</div></div>
+      <div class="title">Add a picture</div>
+      <div class="desc">Upload a picture and add a<br/>title</div>
+    </a>
+  </div>
+
+  <div class="lower-grid">
+    
+    <a class="card wide" href="#" data-choice="Create an event">
+      <div class="icon-bubble"><div class="icon">⚑</div></div>
+      <div><div class="title">Create an event</div><div class="desc">Add an event or occasion to Moses' tribute</div></div>
+    </a>
+    <a class="card wide" href="#" data-choice="Share a story">
+      <div class="icon-bubble"><div class="icon">📖</div></div>
+      <div><div class="title">Share a story</div><div class="desc">Add a memory - you can include pictures, videos and music</div></div>
+    </a>
+    <a class="card wide" href="#" data-choice="Add music">
+      <div class="icon-bubble"><div class="icon">🎵</div></div>
+      <div><div class="title">Add music</div><div class="desc">Select an MP3 file to add to Moses' tribute</div></div>
+    </a>
+    <a class="card wide" href="#" data-choice="Add a video">
+      <div class="icon-bubble"><div class="icon">▶️</div></div>
+      <div><div class="title">Add a video</div><div class="desc">Upload a video clip to the video gallery</div></div>
+    </a>
+  </div>
+
+  <div class="note">Choose how you would like to contribute to Moses' tribute.</div>
+</div>
+
+<section class="candle-wall" aria-labelledby="candle-wall-title">
+  <h2 id="candle-wall-title">Candles lit in loving memory</h2>
+  <p class="intro">A quiet place for family and friends to light a candle and leave a message in memory of Moses.</p>
+  <div class="candles">
+    <article class="memorial-candle">
+      <div class="flame-wrap"><div class="flame"></div></div>
+      <div class="candle-body"></div>
+      <strong>In loving memory</strong>
+      <p>Forever in our hearts.</p>
+    </article>
+    <article class="memorial-candle">
+      <div class="flame-wrap"><div class="flame"></div></div>
+      <div class="candle-body"></div>
+      <strong>Rest peacefully</strong>
+      <p>Your light and love will always be remembered.</p>
+    </article>
+    <article class="memorial-candle">
+      <div class="flame-wrap"><div class="flame"></div></div>
+      <div class="candle-body"></div>
+      <strong>Always remembered</strong>
+      <p>With love, today and always.</p>
+    </article>
+  </div>
+  <a class="light-another" href="https://docs.google.com/forms/d/e/1FAIpQLScgNNsCY0C7eL4oWQaxn6gwv3WkmnC2-yNiaHv999uJx--0zw/viewform?usp=pp_url&entry.912868490=Light+a+candle" target="_blank" rel="noopener">Light a candle for Moses</a>
+</section>
+
+<script>
+const LINKS = {
+  "Share a thought": "https://docs.google.com/forms/d/e/1FAIpQLScgNNsCY0C7eL4oWQaxn6gwv3WkmnC2-yNiaHv999uJx--0zw/viewform?usp=pp_url&entry.912868490=Share+a+thought",
+  "Light a candle": "https://docs.google.com/forms/d/e/1FAIpQLScgNNsCY0C7eL4oWQaxn6gwv3WkmnC2-yNiaHv999uJx--0zw/viewform?usp=pp_url&entry.912868490=Light+a+candle",
+  "Add a picture": "https://docs.google.com/forms/d/e/1FAIpQLScgNNsCY0C7eL4oWQaxn6gwv3WkmnC2-yNiaHv999uJx--0zw/viewform?usp=pp_url&entry.912868490=Add+a+picture",
+  "Create an event": "https://docs.google.com/forms/d/e/1FAIpQLScgNNsCY0C7eL4oWQaxn6gwv3WkmnC2-yNiaHv999uJx--0zw/viewform?usp=pp_url&entry.912868490=Create+an+event",
+  "Share a story": "https://docs.google.com/forms/d/e/1FAIpQLScgNNsCY0C7eL4oWQaxn6gwv3WkmnC2-yNiaHv999uJx--0zw/viewform?usp=pp_url&entry.912868490=Share+a+story",
+  "Add music": "https://docs.google.com/forms/d/e/1FAIpQLScgNNsCY0C7eL4oWQaxn6gwv3WkmnC2-yNiaHv999uJx--0zw/viewform?usp=pp_url&entry.912868490=Add+music",
+  "Add a video": "https://docs.google.com/forms/d/e/1FAIpQLScgNNsCY0C7eL4oWQaxn6gwv3WkmnC2-yNiaHv999uJx--0zw/viewform?usp=pp_url&entry.912868490=Add+a+video",};
+document.querySelectorAll('[data-choice]').forEach(el => {
+  const choice = el.dataset.choice;
+  el.href = LINKS[choice] || "https://docs.google.com/forms/d/e/1FAIpQLScgNNsCY0C7eL4oWQaxn6gwv3WkmnC2-yNiaHv999uJx--0zw/viewform";
+  el.target = "_blank";
+  el.rel = "noopener";
+});
+</script>
+</body>
+</html>
